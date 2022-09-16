@@ -1,0 +1,404 @@
+/* Universal */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  font-size: 0;
+  padding: 0;
+  background-color: #1f1f1f;
+}
+
+/* Animation at-rules */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes boopIn {
+  0% {
+    opacity: 0;
+  }
+  79% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  87% {
+    transform: scale(0.70);
+  }
+  95% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes arcLike {
+  0% {
+    left: 10%;
+    top: 60%;
+  }
+  25% {
+    left: 25%;
+    top: 45%;
+  }
+  50% {
+    left: 40%;
+    top: 30%;
+  }
+  75% {
+    left: 50%;
+    top: 15%;
+  }
+  100% {
+    left: 60%;
+    top: 20%;
+  }
+}
+
+@keyframes floatLeft {
+  0% {
+    right: 2%;
+  }
+  100% {
+    right: 45%;
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    left: 10px;
+  }
+  20% {
+    left: 10px;
+  }
+  90% {
+    left: 695px;
+  }
+  100% {
+    left: 695px;
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0);
+  }
+  26.7% {
+    transform: rotate(-0.25turn);
+  }
+  40% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes moveXaxis {
+  0% {
+    left: 110px;
+  }
+  50% {
+    left: 591px;
+  }
+  100% {
+    left: 110px;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  7% {
+    opacity: 0.7;
+  }
+  14% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  34% {
+    opacity: 0.2;
+  }
+  39% {
+    opacity: 1;
+  }
+  57% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.85;
+  }
+  84% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes darkness {
+  0% {
+    background-color: #FFF5EE;
+  }
+  1% {
+    background-color: #d5d5d5;
+  }
+  29% {
+    background-color: #b9b9b9;
+  }
+  59% {
+    background-color: #a1a1a1;
+  }
+  100% {
+    background-color: #909090;
+  }
+}
+
+/* Quadrants */
+#topLeft, #topRight, #midLeft, #midRight {
+  width: 50%;
+  height: 12.5rem;
+  display: inline-block;
+  vertical-align: top;
+  background-color: lightskyblue;
+  position: relative;
+  font-size: 16px;
+}
+
+#topLeft, #midRight {
+  background-color: burlywood;
+}
+
+/* Top Left - bounceIn */
+h2 {
+  font-family: Verdana, sans-serif;
+  font-size: 5rem;
+  font-weight: 600;
+  color: blue;
+  text-align: center;
+  padding-top: 2.5rem;
+  animation: bounceIn 2s ease-in-out 5 alternate;
+}
+
+/* Top Right - sun & cloud */
+.mountain {
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 120px solid teal;
+  padding-bottom: 80px;
+  margin-left: 150px;
+  position: relative;
+}
+
+.mountain > div {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid #007070;
+  padding-bottom: 130px;
+  margin-left: 0px;
+  position: relative;
+}
+
+.sun {
+  background-color: gold;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 10%;
+  top: 60%;
+  animation: boopIn 1250ms ease-out, arcLike 2.5s linear 1500ms forwards;
+}
+
+.cloud {
+  background-color: #FFF5EE;
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 35px;
+  position: absolute;
+  right: 2%;
+  top: 43%;
+  animation: floatLeft 10s ease-in-out 2.5s forwards, darkness 3s ease-in-out 13s infinite backwards;
+}
+
+.cloud div:first-child {
+  background-color: #FFF5EE;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 46%;
+  top: -39%;
+  animation: darkness 3s ease-in-out 13s infinite backwards;
+}
+
+.cloud div:last-child {
+  background-color: #FFF5EE;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 8%;
+  top: -65%;
+  animation: darkness 3s ease-in-out 13s infinite backwards;
+}
+
+.rain {
+  background-color: cornflowerblue;
+  width: 0.5rem;
+  height: 2.5rem;
+  border-radius: 35px;
+  position: absolute;
+  right: 55%;
+  top: 70%;
+  animation: flicker 5s ease 14s infinite backwards;
+}
+
+.rain div:first-child {
+  background-color: cornflowerblue;;
+  width: 0.5rem;
+  height: 2.5rem;
+  border-radius: 35px;
+  position: absolute;
+  right: -600%;
+  top: 0%;
+}
+
+.rain div:last-child {
+  background-color: cornflowerblue;;
+  width: 0.5rem;
+  height: 2.5rem;
+  border-radius: 35px;
+  position: absolute;
+  right: -300%;
+  top: 0%;
+}
+
+/* Mid Left - ball timing-function */
+#midLeft {
+  position: relative;
+  text-align: center;
+  color: #2f2f2f;
+}
+
+#midLeft p {
+  line-height: 30px;
+  padding: 5px;
+  font-family: Verdana, sans-serif;
+}
+
+.linear, .ease, .ease-in-out, .ease-in, .ease-out {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+}
+
+.linear {
+  background-color: white;
+  top: 5px;
+  animation: moveRight 5s linear 500ms 4 forwards;
+}
+
+.ease {
+  background-color: #1f1f1f;
+  top: 45px;
+  animation: moveRight 5s ease 500ms 4 forwards;
+}
+
+.ease-in-out {
+  background-color: gray;
+  top: 85px;
+  animation: moveRight 5s ease-in-out 500ms 4 forwards;
+}
+
+.ease-in {
+  background-color: blue;
+  top: 125px;
+  animation: moveRight 5s ease-in 500ms 4 forwards;
+}
+
+.ease-out {
+  background-color: red;
+  top: 165px;
+  animation: moveRight 5s ease-out 500ms 4 forwards;
+}
+
+/* Mid Right - racquet and ball */
+.racquet {
+  width: 10px;
+  height: 75px;
+  position: absolute;
+  left: 115px;
+  top: 100px;
+  background-color: #2f2f2f;
+  animation: swing 1.5s 500ms infinite;
+}
+
+.racquet div:first-child {
+  width: 50px;
+  height: 75px;
+  border-radius: 50%;
+  position: absolute;
+  left: -20px;
+  top: -74px;
+  background-color: #2f2f2f;
+}
+
+.racquet div:last-child {
+  width: 44px;
+  height: 69px;
+  border-radius: 50%;
+  position: absolute;
+  left: -17px;
+  top: -71px;
+  background-color: #afafaf;
+}
+
+.wall {
+  width: 20px;
+  height: 150px;
+  position: absolute;
+  right: 100px;
+  top: 25px;
+  background-color: darkred;
+}
+
+.ball {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  left: 110px;
+  top: 50px;
+  background-color: royalblue;
+  animation: moveXaxis 1.5s linear 1s infinite;
+}
